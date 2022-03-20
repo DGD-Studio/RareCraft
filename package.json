@@ -1,0 +1,31 @@
+{
+  "name": "rarecraft",
+  "version": "1.0.0",
+  "description": "Another bot?!",
+  "main": "build/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "prestart": "tsc",
+    "build": "tsc",
+    "build:strict": "tsc --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DGD-Studio/RareCraft.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DGD-Studio/RareCraft/issues"
+  },
+  "homepage": "https://github.com/DGD-Studio/RareCraft#readme",
+  "dependencies": {
+    "discordeno": "^13.0.0-rc24"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "typescript": "^4.6.2"
+  }
+}
