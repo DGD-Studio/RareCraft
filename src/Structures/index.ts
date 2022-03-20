@@ -1,2 +1,6 @@
 export * from "./BotType"
 export * from "./User"
+export * from "./BaseCommand"
+export * from "./Channel"
+export * from "./Guild"
+export * from "./Interaction"

@@ -1,6 +1,7 @@
 import { createBot, startBot } from "discordeno"
 import config from "../config.json"
-import { EventManager } from "./Managers"
+import { CommandManager, EventManager } from "./Managers"
+import { RareCraft } from "./Structures"
 
 const events = new EventManager()
 const bot = createBot({
@@ -9,5 +10,9 @@ const bot = createBot({
     events: events.load(),
     intents: ["Guilds"]
 })
+
+const rare = bot as RareCraft
+rare.commands = new CommandManager(rare)
+rare.commands.load()
 
 startBot(bot)

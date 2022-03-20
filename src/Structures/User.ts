@@ -1,7 +1,7 @@
 import { User as DUser } from 'discordeno';
 import { RareCraft } from './index';
 
-export class User {
+export class RUser {
   private client: RareCraft;
   private data: DUser;
   constructor(client, user: DUser) {

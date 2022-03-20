@@ -1,6 +1,8 @@
 import { Bot } from "discordeno";
-import { User } from ".";
+import { RUser } from ".";
+import { CommandManager } from "../Managers";
 
 export interface RareCraft extends Bot {
-    user: User;
+    user: RUser;
+    commands: CommandManager;
 }
