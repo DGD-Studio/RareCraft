@@ -1,0 +1,45 @@
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model guild {
+  id               String   @id @unique
+  blocked          Boolean  @default(false)
+  blocked_channels String[]
+}
+
+model user {
+  id             String          @id @unique
+  blocked        Boolean         @default(false)
+  coins          Int             @default(0)
+  account_number Int             @default(autoincrement())
+  inventory      user_inventory?
+  stats          user_stats?
+  cooldowns      user_cooldowns?
+}
+
+model user_inventory {
+  user_id String @id @unique
+  user    user   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model user_stats {
+  user_id String @id @unique
+  user    user   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model user_cooldowns {
+  user_id String @id @unique
+  user    user   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model bot_stats {
+  id     String @id @unique
+  guilds Int    @default(0)
+  users  Int    @default(0)
+}
