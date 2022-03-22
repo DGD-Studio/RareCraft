@@ -88,12 +88,12 @@ export class RInteraction {
     return this.client.helpers.sendInteractionResponse(this.id, this.token, Payload);
   }
 
-  async reply(options: InteractionResponse, ephemeral: boolean = false) {
-    if (this.deferred || this.replied) throw new Error("Interaction has been already replied");
+  async reply(options: any, ephemeral: boolean = false) {
+    if (this.deferred || this.replied) return this.followUp(options);
     this.ephemeral = ephemeral;
     if (this.ephemeral && options.data && !options.data?.flags) options.data.flags = 64
     this.replied = true;
-    const Payload = { data: options.data, type: Constants.CHANNEL_MESSAGE_WITH_SOURCE };
+    const Payload = { data: options.data ?? options, type: Constants.CHANNEL_MESSAGE_WITH_SOURCE };
     return this.client.helpers.sendInteractionResponse(this.id, this.token, Payload);
   }
 

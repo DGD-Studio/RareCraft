@@ -10,9 +10,9 @@
     "build": "tsc",
     "build:strict": "tsc --build",
     "prisma:gen": "prisma generate",
-		"prisma:format": "prisma format",
+    "prisma:format": "prisma format",
     "prisma:migrate": "prisma migrate dev --name",
-		"prisma:pull": "prisma db pull"
+    "prisma:pull": "prisma db pull"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/DGD-Studio/RareCraft#readme",
   "dependencies": {
     "@prisma/client": "^3.11.0",
+    "colors": "^1.4.0",
     "discordeno": "^13.0.0-rc24",
     "prisma": "^3.11.0"
   },

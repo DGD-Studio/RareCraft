@@ -1,25 +1,18 @@
-import { RInteraction, RareCraft } from '.';
-import { User, Channel, Guild, Member } from 'discordeno';
+import { CreateApplicationCommand } from 'discordeno/*';
+import { CommandContext } from './CommandContext';
+import { logger } from './Logger';
 
 export class BaseCommand {
-  interaction: RInteraction;
-  user: User;
-  channel: Channel;
-  member: Member;
-  guild: Guild;
-  client: RareCraft;
-
-  constructor(data) {
-    //this.message = data.message && new RMessage(data.client, data.message);
-    this.interaction =
-      data.interaction && new RInteraction(data.client, data.interaction);
-    this.user = this.interaction.user;
-    this.guild = this.interaction.guild;
-    this.member = this.interaction.member;
-    this.channel = this.interaction.channel;
-    this.client = data.client;
-    //this.settings = data.settings ?? {};
+  public path: string;
+  constructor(public data: CreateApplicationCommand, path: string) {
+    this.path = path;
   }
 
-  
+  async execute(_ctx: CommandContext) {
+    logger.cmd(
+      'No execute function found for this command.',
+      this.data.name,
+      3
+    );
+  }
 }
